@@ -1,4 +1,4 @@
-import bjj from "@/assets/bjj.jpg";
+import bjj from "@/assets/bjj.png";
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { Metadata } from "next";
@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Learn more about Florian Walther and his work.",
+  description: "Learn more about Miguel Santaolalla and his work.",
 };
 
 export default function Page() {
@@ -17,35 +17,39 @@ export default function Page() {
       <section className="space-y-3">
         <H2>Who am I?</H2>
         <p>
-          My name is Florian Walther and I am a self-taught software developer
-          from Germany. I started programming in 2017, at the age of 26, and
-          since then I have created hundreds of tutorials on my YouTube channel{" "}
-          <a
-            href="https://www.youtube.com/codinginflow"
-            className="text-primary hover:underline"
-          >
-            Coding in Flow
-          </a>
-          .
+          My name is Miguel Santaolalla,  I am a frontend developer with experience creating a product from 0. From ideation, research, rapid prototyping, high fidelity design, testing, to final release. This allows me to think about all factors during the process from concept to final product. I know how to work hand-in-hand with developers during the transfer from design to development. I am flexible, responsible and love to create a fun and enjoyable work environment by collaborating as a team
         </p>
         <p>
-          I&apos;m passionate about building cool apps and websites and I love
-          sharing the things I learn with my audience.
+          I love creating beautifully productes and cool apps
         </p>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
-        <H2>Skills</H2>
+        <H2>Programing Skills</H2>
+        <p>I am a frontend developer specializing in:</p>
+        <ul className="list-disc px-4">
+          <li><strong>React</strong></li>
+          <li><strong>Next.js 14</strong></li>
+          <li><strong>Typescript</strong></li>
+          <li><strong>HTML</strong></li>
+          <li><strong>CSS</strong></li>
+          <li><strong>Javascript</strong></li>
+        </ul>
+        <p>I also have experience with other tools like:</p>
+        <ul className="list-disc px-4">
+          <li><strong>Testing with Jest, Vitest and React Testing Library</strong></li>
+          <li><strong>Github</strong></li>
+          <li><strong>Custom Hooks</strong></li>
+          <li><strong>React Query</strong></li>
+          <li><strong>React Router</strong></li>
+        </ul>
+      </section>
+      <hr className="border-muted" />
+      <section className="space-y-3">
+        <H2>Other Skills</H2>
         <p>
-          I&apos;m a full-stack web developer specializing in{" "}
-          <strong>React</strong>, <strong>Next.js</strong>, and{" "}
-          <strong>Node.js</strong>.
-        </p>
-        <p>
-          I also have experience with Android development but have stopped
-          working with it a few years ago. I prefer web development because you
-          can use a modern website on almost every device and reach the whole
-          world with it.
+          I&apos;ve worked on a security instant messaging startup for twelve years, so i have leverage my knowledge in many other fields like{" "}
+          <strong>Figma</strong>, <strong>Python</strong> and <strong>Jira</strong>.
         </p>
       </section>
       <hr className="border-muted" />
@@ -57,22 +61,13 @@ export default function Page() {
         </p>
         <ul className="list-inside list-disc">
           <li>
-            <a
-              href="https://smartdiary.co"
-              className="text-primary hover:underline"
-            >
-              SmartDiary.co
-            </a>{" "}
-            - An AI-powered journaling app
+            <a href="https://moviewiser.com" target="_blank" className="text-primary hover:underline">MovieWiser</a>{" "}- An AI-powered movie recommender based on your mood
           </li>
           <li>
-            <Link
-              href="https://books-ai.app"
-              className="text-primary hover:underline"
-            >
-              Books-AI.app
-            </Link>{" "}
-            - An AI book recommendation app
+            <Link href="/" className="text-primary hover:underline">Smart Portafolio</Link>{" "}- An AI Portfolio using LangChain and OpenAI LLM.
+          </li>
+          <li>
+            <a href="https://santaolallafoto.com" target="_blank" className="text-primary hover:underline">Santaolalla Foto</a>{" "}- My Wedding photography site.
           </li>
         </ul>
       </section>
@@ -80,18 +75,16 @@ export default function Page() {
       <section className="space-y-3">
         <H2>Hobbies</H2>
         <p>
-          Besides programming, I love doing sports. I lift weights and do
-          Brazilian Jiu-Jitsu. I also enjoy reading books and going out
-          sometimes. I think having hobbies other than coding is important for
-          mental health.
+          Besides programming, I love creative stuff. I love photography and i have been working as a wedding photographer many years. 
+          I also practice photography in general, which has led to me winning several awards from local newspapers and even being featured in National Geographic magazine. 
+          I love digital art and have some practice with Procreate on iPad
         </p>
-        <p>
-          I&apos;m also very much into self-improvement, nutrition, and positive
-          psychology.
-        </p>
+        <p>I have a passion for technology in general and a curiosity for science, biology, and psychology.</p>
+        <p>I&apos;m also very much into self-improvement</p>
+
         <Image
           src={bjj}
-          alt="Brazilian Jiu-Jitsu group photo"
+          alt="Giant Caseway photo"
           className="rounded-md"
         />
       </section>

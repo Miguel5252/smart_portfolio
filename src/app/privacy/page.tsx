@@ -12,7 +12,7 @@ export default function Page() {
     <section className="space-y-6">
       <div className="space-y-3">
         <H1>Privacy Policy</H1>
-        <p>Last Updated: Jan 2024</p>
+        <p>Last Updated: Jun 2024</p>
       </div>
       <div className="space-y-3">
         <H2>Introduction</H2>
@@ -73,7 +73,7 @@ export default function Page() {
         </p>
         <H2>Changes to This Privacy Policy</H2>
         <p>
-          This Privacy Policy is effective as of Jan 2024 and will remain in
+          This Privacy Policy is effective as of Jun 2024 and will remain in
           effect except with respect to any changes in its provisions in the
           future, which will be in effect immediately after being posted on this
           page. We reserve the right to update or change our Privacy Policy at
@@ -82,7 +82,7 @@ export default function Page() {
         <H2>Contact Us</H2>
         <p>
           If you have any questions about this Privacy Policy, please contact us
-          at info@codinginflow.com.
+          at msantaolalla@gmail.com.
         </p>
       </div>
     </section>

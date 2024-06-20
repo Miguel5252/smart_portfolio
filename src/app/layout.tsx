@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class">
           <Navbar />
-          <main className="mx-auto max-w-3xl px-3 py-10">{children}</main>
+          <main className="mx-auto max-w-screen-xl px-3 py-10">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

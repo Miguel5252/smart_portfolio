@@ -1,18 +1,19 @@
 "use client";
 
 import { Bot } from "lucide-react";
-import { useState } from "react";
+import { useState, useContext  } from "react";
 import AIChatBox from "./AIChatBox";
+import { botContext } from "@/contexts/BotContextProvider";
 
 export default function AIChatButton() {
-  const [chatBoxOpen, setChatBoxOpen] = useState(false);
+  const {show, handleShowBot} = useContext(botContext)
 
   return (
     <>
-      <button onClick={() => setChatBoxOpen(true)}>
+      <button onClick={() => handleShowBot(true)}>
         <Bot size={24} />
       </button>
-      <AIChatBox open={chatBoxOpen} onClose={() => setChatBoxOpen(false)} />
+      <AIChatBox open={show} onClose={() => handleShowBot(false)} />
     </>
   );
 }

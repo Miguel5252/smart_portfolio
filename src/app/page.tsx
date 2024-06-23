@@ -10,6 +10,7 @@ import design_case_image from '@/assets/case_study.png'
 import mz_image from '@/assets/mz_web.png'
 import imbox_image from '@/assets/imbox_app.png'
 import santaolalla_image from '@/assets/santaolalla_foto.png'
+import FakeSearchBar from "@/components/ui/FakeSearchBar";
 
 export const metadata: Metadata = {
   title: "Miguel Santaolalla - Smart Portfolio",
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
-        <section className="grid grid-cols-1 items-center gap-8 sm:grid-cols-2">
-          <div className="space-y-3">
+      <section className="px-1 py-8">
+        <section className="flex flex-col items-center gap-8 justify-center p-7">
+          <div className="space-y-3 flex flex-col items-center">
             <H1 className="text-center sm:text-start">Hi, I&apos;m Miguel 👋</H1>
             <p className="text-center sm:text-start">
               I&apos;m a Frontend developer and UX Designer.
@@ -30,15 +31,17 @@ export default function Home() {
             <Image
               src={me}
               alt="A photo of me"
-              height={300}
-              width={300}
+              height={200}
+              width={200}
               className="aspect-square rounded-full border-2 object-cover shadow-md dark:border-foreground"
             />
           </div>
         </section>
-        <section className="space-y-3 text-center">
+        <section className="space-y-3 text-center flex flex-col items-center">
           <H2>Ask the chatbot anything about me</H2>
-          <p>
+          <FakeSearchBar />
+         
+          <p className="max-w-2xl text-secondary-foreground">
             Click the little <Bot className="inline pb-1" /> icon in the top bar
             to activate the AI chat. You can ask the chatbot any question about me
             and it will find the relevant info on this website. The bot can even

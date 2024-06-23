@@ -15,7 +15,7 @@ function WebPreview({title, description, img, url} : WebPreviewProps){
         <div className="max-w-xl">
             <H3 className="text-center">{title}</H3>
             <a href={url} target="_blank">
-                <Image className="rounded-md drop-shadow-lg mt-2 max-h-96" src={img} alt={title} width={600} height={600} />
+                <Image className="rounded-md shadow-md mt-2 max-h-96" src={img} alt={title} width={600} height={600} />
             </a>
             <p className="text-left, mt-4 text-sm text-gray-400">{description}</p>
         </div>

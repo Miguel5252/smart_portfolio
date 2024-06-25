@@ -11,6 +11,7 @@ import mz_image from '@/assets/mz_web.png'
 import imbox_image from '@/assets/imbox_app.png'
 import santaolalla_image from '@/assets/santaolalla_foto.png'
 import FakeSearchBar from "@/components/ui/FakeSearchBar";
+import smart_pf from '@/assets/smart_portfolio.png'
 
 export const metadata: Metadata = {
   title: "Miguel Santaolalla - Smart Portfolio",
@@ -56,7 +57,7 @@ export default function Home() {
         <div className='flex flex-row flex-wrap pb-24 gap-12 justify-center py-4'>
           <WebPreview
             title="Movie recommendations web by AI"
-            description="In this project, I leverage the power of several APIs such as TMDB and OpenAI to create a movie recommendation system that provides users with tailored movie suggestions based on their search queries."
+            description="In this project, I leverage the power of several APIs such as TMDB and OpenAI to create a movie AI recommendation system that provides users with tailored movie suggestions based on their search queries. I have used technologies such as Next.js 14, TypeScript, React Redux, custom hooks, and React Query, among others."
             img={moviewiser_image}
             url="https://moviewiser.com/"
           />
@@ -67,6 +68,13 @@ export default function Home() {
             img={mz_image}
             url="https://mz-web-7bb6d.web.app/"
           />
+
+          <WebPreview
+            title="Smart Portfolio AI"
+            description="This is the project you are currently viewing. It is an interactive portfolio that allows you to ask any questions about its content or my CV via chat, thanks to the use of LLMs and LangChain. The technologies used include Next.js 14, TypeScript, Tailwind, custom hooks, among others."
+            img={smart_pf}
+            url="https://miguelsantaolalla-smart-portfolio.vercel.app/"
+          />    
 
           <WebPreview
             title="Mobile App Case study"

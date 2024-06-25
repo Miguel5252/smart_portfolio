@@ -6,6 +6,7 @@ import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { getEmbeddingsCollection, getVectorStore } from "../src/lib/astradb";
+import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 
 async function generateEmbeddings() {
 
@@ -13,7 +14,8 @@ async function generateEmbeddings() {
 
   (await getEmbeddingsCollection()).deleteMany({});
 
-  const loader = new DirectoryLoader(
+  // LEER ARCHIVOS HTML
+  const web_loader = new DirectoryLoader(
     "src/app/",
     {
       ".tsx": (path) => new TextLoader(path),
@@ -21,7 +23,7 @@ async function generateEmbeddings() {
     true,
   );
 
-  const docs = (await loader.load())
+  const web_docs = (await web_loader.load())
     .filter((doc) => doc.metadata.source.endsWith("page.tsx"))
     .map((doc): DocumentInterface => {
       const url =
@@ -38,15 +40,33 @@ async function generateEmbeddings() {
 
       return {
         pageContent: pageContentTrimmed,
-        metadata: { url },
+        metadata: { url: url, source: 'web', pdf: null },
       };
     });
 
-  const splitter = RecursiveCharacterTextSplitter.fromLanguage("html");
 
-  const splitDocs = await splitter.splitDocuments(docs);
 
-  await vectorStore.addDocuments(splitDocs);
+  // LEER ARCHIVOS PDF
+  const pdf_loader = new PDFLoader("./src/assets/miguel_santaolalla_frontend_cv.pdf");
+  const pdf_docs = (await pdf_loader.load()).map(doc => {
+    return {
+      pageContent: doc.pageContent,
+      metadata: {
+        ...doc.metadata, 
+        url: 'https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf', 
+        source: 'https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf' 
+      }
+    }
+  })
+
+  //Juntar DOCS y hacerles el Split
+  const docs = [...web_docs, ...pdf_docs]
+  const web_splitter = RecursiveCharacterTextSplitter.fromLanguage("html");
+  const splittedDocs = await web_splitter.splitDocuments(docs);
+
+  // Guardar en ASTRA
+
+  await vectorStore.addDocuments(splittedDocs);
 }
 
 generateEmbeddings();

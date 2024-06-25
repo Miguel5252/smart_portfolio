@@ -61,7 +61,10 @@ async function generateEmbeddings() {
 
   //Juntar DOCS y hacerles el Split
   const docs = [...web_docs, ...pdf_docs]
-  const web_splitter = RecursiveCharacterTextSplitter.fromLanguage("html");
+  const web_splitter = RecursiveCharacterTextSplitter.fromLanguage("html", {
+    chunkSize: 400,
+    chunkOverlap: 30,
+  });
   const splittedDocs = await web_splitter.splitDocuments(docs);
 
   // Guardar en ASTRA

@@ -46,7 +46,9 @@ export async function POST(req: Request) {
       verbose: true,
     });
 
-    const retriever = (await getVectorStore()).asRetriever();
+    const retriever = (await getVectorStore()).asRetriever({
+      k: 5,
+    });
 
     const rephrasePrompt = ChatPromptTemplate.fromMessages([
       new MessagesPlaceholder("chat_history"),
@@ -67,9 +69,9 @@ export async function POST(req: Request) {
     const prompt = ChatPromptTemplate.fromMessages([
       [
         "system",
-        "You are a chatbot for a personal portfolio website. You impersonate the website's owner. " +
+        "You are a chatbot for a personal portfolio website. You impersonate the website's owner (Miguel: Frontend Developer). " +
           "Answer the user's questions based on the below context. " +
-          "Whenever it makes sense, provide links to pages that contain more information about the topic from the given context. " +
+          "Whenever it makes sense and you have valid url for pages or source for pdf file (not null fields), provide links to pages or pdf file that contain more information about the topic from the given context. " +
           "Format your messages in markdown format.\n\n" +
           "Context:\n{context}",
       ],

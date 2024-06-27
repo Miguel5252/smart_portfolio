@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       <section className='pt-10'>
-        <H2>Some of my works</H2>
+        <H2>Some of my projects</H2>
         <div className='flex flex-row flex-wrap pb-24 gap-12 justify-center py-4'>
           <WebPreview
             title="Movie recommendations web by AI"

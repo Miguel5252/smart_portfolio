@@ -38,10 +38,11 @@ export default function Page() {
         <p>I also have experience with other tools like:</p>
         <ul className="list-disc px-4">
           <li><strong>Testing with Jest, Vitest and React Testing Library</strong></li>
-          <li><strong>Github</strong></li>
-          <li><strong>Custom Hooks</strong></li>
+          <li><strong>React Redux toolkit</strong></li>
           <li><strong>React Query</strong></li>
           <li><strong>React Router</strong></li>
+          <li><strong>Github</strong></li>
+          <li><strong>Custom Hooks</strong></li>
         </ul>
       </section>
       <hr className="border-muted" />
@@ -49,7 +50,7 @@ export default function Page() {
         <H2>Other Skills</H2>
         <p>
           I&apos;ve worked on a security instant messaging startup for twelve years, so i have leverage my knowledge in many other fields like{" "}
-          <strong>Figma</strong>, <strong>Python</strong> and <strong>Jira</strong>.
+          <strong>Figma</strong>, <strong>Python</strong>, <strong>Jira</strong> and <strong>Agile methodologies</strong>.
         </p>
       </section>
       <hr className="border-muted" />

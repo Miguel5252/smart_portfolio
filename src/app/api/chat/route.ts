@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     });
 
     const retriever = (await getVectorStore()).asRetriever({
-      k: 5,
+      k: 6,
     });
 
     const rephrasePrompt = ChatPromptTemplate.fromMessages([

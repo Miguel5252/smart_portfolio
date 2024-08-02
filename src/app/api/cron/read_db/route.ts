@@ -1,7 +1,7 @@
 import { getVectorStore } from "@/lib/astradb";
 
 export async function GET() {
-  await getVectorStore();
-  console.log('trabajo cron: Lectura base de datos astra')
+  const db = await getVectorStore();
+  console.log('prueba', db)
   return Response.json({ data: true});
 }

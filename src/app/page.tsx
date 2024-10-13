@@ -5,13 +5,14 @@ import { Bot } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import WebPreview from "@/components/WebPreview";
-import moviewiser_image from '@/assets/moviewiser_screenshot.png'
-import design_case_image from '@/assets/case_study.png'
-import mz_image from '@/assets/mz_web.png'
-import imbox_image from '@/assets/imbox_app.png'
-import santaolalla_image from '@/assets/santaolalla_foto.png'
+import moviewiser_image from "@/assets/moviewiser_screenshot.png";
+import design_case_image from "@/assets/case_study.png";
+import mz_image from "@/assets/mz_web.png";
+import imbox_image from "@/assets/imbox_app.png";
+import santaolalla_image from "@/assets/santaolalla_foto.png";
 import FakeSearchBar from "@/components/ui/FakeSearchBar";
-import smart_pf from '@/assets/smart_portfolio.png'
+import smart_pf from "@/assets/smart_portfolio.png";
+import remind_me_web from "@/assets/remindme_web.png";
 
 export const metadata: Metadata = {
   title: "Miguel Santaolalla - Smart Portfolio",
@@ -21,9 +22,11 @@ export default function Home() {
   return (
     <>
       <section className="px-1 py-8">
-        <section className="flex flex-col items-center gap-8 justify-center p-7">
-          <div className="space-y-3 flex flex-col items-center">
-            <H1 className="text-center sm:text-start">Hi, I&apos;m Miguel 👋</H1>
+        <section className="flex flex-col items-center justify-center gap-8 p-7">
+          <div className="flex flex-col items-center space-y-3">
+            <H1 className="text-center sm:text-start">
+              Hi, I&apos;m Miguel 👋
+            </H1>
             <p className="text-center sm:text-start">
               I&apos;m a Frontend developer and UX Designer.
             </p>
@@ -38,23 +41,28 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="space-y-3 text-center flex flex-col items-center">
+        <section className="flex flex-col items-center space-y-3 text-center">
           <H2>Ask the chatbot anything about me</H2>
           <FakeSearchBar />
-         
+
           <p className="max-w-2xl text-secondary-foreground">
             Click the little <Bot className="inline pb-1" /> icon in the top bar
-            to activate the AI chat. You can ask the chatbot any question about me
-            and it will find the relevant info on this website. The bot can even
-            provide links to pages you&apos;re looking for.
+            to activate the AI chat. You can ask the chatbot any question about
+            me and it will find the relevant info on this website. The bot can
+            even provide links to pages you&apos;re looking for.
           </p>
         </section>
-
       </section>
 
-      <section className='pt-10'>
+      <section className="pt-10">
         <H2>Some of my projects</H2>
-        <div className='flex flex-row flex-wrap pb-24 gap-12 justify-center py-4'>
+        <div className="flex flex-row flex-wrap justify-center gap-12 py-4 pb-24">
+          <WebPreview
+            title="Smart Note Assistant powered by AI"
+            description="This app allows users to create, delete, and modify notes with the help of an intelligent assistant that support text, audio and vision. Using Next.js, TypeScript, Tailwind CSS, and integrating Langchain and Retrieval-Augmented Generation (RAG), the assistant learns from user interactions to provide personalized assistance."
+            img={remind_me_web}
+            url="https://remindme-next-self.vercel.app/"
+          />
           <WebPreview
             title="Movie recommendations web by AI"
             description="In this project, I leverage the power of several APIs such as TMDB and OpenAI to create a movie AI recommendation system that provides users with tailored movie suggestions based on their search queries. I have used technologies such as Next.js 14, TypeScript, React Redux, custom hooks, and React Query, among others."
@@ -74,7 +82,7 @@ export default function Home() {
             description="This is the project you are currently viewing. It is an interactive portfolio that allows you to ask any questions about its content or my CV via chat, thanks to the use of LLMs and LangChain. The technologies used include Next.js 14, TypeScript, Tailwind, custom hooks, among others."
             img={smart_pf}
             url="https://miguelsantaolalla-smart-portfolio.vercel.app/"
-          />    
+          />
 
           <WebPreview
             title="Mobile App Case study"

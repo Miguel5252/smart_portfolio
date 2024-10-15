@@ -9,7 +9,6 @@ import { getEmbeddingsCollection, getVectorStore } from "../src/lib/astradb";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 
 async function generateEmbeddings() {
-
   const vectorStore = await getVectorStore();
 
   (await getEmbeddingsCollection()).deleteMany({});
@@ -40,29 +39,30 @@ async function generateEmbeddings() {
 
       return {
         pageContent: pageContentTrimmed,
-        metadata: { url: url, source: 'web', pdf: null },
+        metadata: { url: url, source: "web", pdf: null },
       };
     });
 
-
-
   // LEER ARCHIVOS PDF
-  const pdf_loader = new PDFLoader("./src/assets/miguel_santaolalla_frontend_cv.pdf");
-  const pdf_docs = (await pdf_loader.load()).map(doc => {
+  const pdf_loader = new PDFLoader(
+    "./src/assets/miguel_santaolalla_frontend_cv.pdf",
+  );
+  const pdf_docs = (await pdf_loader.load()).map((doc) => {
     return {
       pageContent: doc.pageContent,
       metadata: {
-        ...doc.metadata, 
-        url: 'https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf', 
-        source: 'https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf' 
-      }
-    }
-  })
+        ...doc.metadata,
+        url: "https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf",
+        source:
+          "https://miguelsantaolalla-smart-portfolio.vercel.app/downloads/miguel_santaolalla_frontend_cv.pdf",
+      },
+    };
+  });
 
   //Juntar DOCS y hacerles el Split
-  const docs = [...web_docs, ...pdf_docs]
+  const docs = [...web_docs, ...pdf_docs];
   const web_splitter = RecursiveCharacterTextSplitter.fromLanguage("html", {
-    chunkSize: 700,
+    chunkSize: 2000,
     chunkOverlap: 100,
   });
   const splittedDocs = await web_splitter.splitDocuments(docs);

@@ -31,23 +31,22 @@ export async function POST(req: Request) {
 
     const currentMessageContent = messages[messages.length - 1].content;
 
-
     const { stream, handlers } = LangChainStream();
 
     const chatModel = new ChatOpenAI({
-      modelName: "gpt-3.5-turbo",
+      modelName: "gpt-4o-mini",
       streaming: true,
       callbacks: [handlers],
       verbose: true,
     });
 
     const rephrasingModel = new ChatOpenAI({
-      modelName: "gpt-3.5-turbo",
+      modelName: "gpt-4o-mini",
       verbose: true,
     });
 
     const retriever = (await getVectorStore()).asRetriever({
-      k: 6,
+      k: 15,
     });
 
     const rephrasePrompt = ChatPromptTemplate.fromMessages([
